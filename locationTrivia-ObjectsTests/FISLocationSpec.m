@@ -95,6 +95,7 @@ describe(@"FISLocation", ^{
         });
         
         it(@"Should return an NSString", ^{
+            location.name = @"Duane Reade";
             expect([location shortenedNameToLength:5]).to.beKindOf([NSString class]);
         });
         

@@ -16,26 +16,12 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-
-    NSDictionary *location =  @{@"name": @"Status of Liberty",
-                                @"longitude": @71.324,
-                                @"latitude": @-31.412};
-    NSLog(@"%@",[self shortenLocationNameWithLocation:location ToCount:3]);
-
-    NSLog(@"%@",[self createLocationWithName:@"Joe" Latitude:@32 Longitude:@43]);
+    
     return YES;
 }
 
 
 
-- (NSString *)shortenLocationNameWithLocation:(NSDictionary *)location ToCount:(NSInteger)count
-{
-    NSString *name = location[@"name"];
-    if (count <0) {
-        return name;
-    }
-    return [name substringToIndex:count];
-}
 
 - (NSDictionary *)createLocationWithName:(NSString *)name Latitude:(NSNumber *)latitude Longitude:(NSNumber *)longitude
 {
@@ -47,30 +33,19 @@
 -(NSArray *)getLocationNamesWithLocations:(NSArray *)locations
 {
     NSMutableArray *resultArray = [[NSMutableArray alloc] init];
-    for (NSDictionary *location in locations) {
-        NSString *name = location[@"name"];
+    for (FISLocation *location in locations) {
+        NSString *name = location.name;
         [resultArray addObject:name];
     }
 
     return resultArray;
 }
 
-- (BOOL) verifyLocation:(NSDictionary *)location
-{
-    if ([location.allKeys count] != 3)
-    {
-        return NO;
-    }
-    if (location[@"name"] && location[@"latitude"] && location[@"longitude"]) {
-        return YES;
-    }
-    return NO;
-}
 
-- (NSDictionary *)searchForLocationName:(NSString *)name inLocations:(NSArray *)locations
+- (FISLocation *)searchForLocationName:(NSString *)name inLocations:(NSArray *)locations
 {
-    for (NSDictionary *location in locations) {
-        NSString *locationName = location[@"name"];
+    for (FISLocation *location in locations) {
+        NSString *locationName = location.name;
         if ([locationName isEqualToString:name]) {
             return location;
         }
