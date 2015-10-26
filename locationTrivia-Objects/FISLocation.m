@@ -30,7 +30,7 @@
 
 - (NSString *)stringByTruncatingNameToLength:(NSUInteger)length{
     NSUInteger objLength = self.name.length;
-    if (objLength == length) {
+    if (objLength == length || length > objLength) {
         return self.name;
     } else {
         return [self.name substringToIndex:length];

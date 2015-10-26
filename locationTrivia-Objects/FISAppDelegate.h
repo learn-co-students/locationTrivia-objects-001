@@ -1,6 +1,7 @@
 //  FISAppDelegate.h
 
 #import <UIKit/UIKit.h>
+#import "FISLocation.h"
 
 @class FISLocation;
 
