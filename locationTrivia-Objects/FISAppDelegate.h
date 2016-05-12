@@ -2,6 +2,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "FISLocation.h"
+
 @class FISLocation;
 
 @interface FISAppDelegate : UIResponder <UIApplicationDelegate>
