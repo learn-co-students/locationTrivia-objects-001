@@ -9,4 +9,16 @@
     return YES;
 }
 
+- (NSArray *)allLocationNames {
+    return nil;
+}
+
+- (FISLocation *)locationNamed:(NSString *)name {
+    return nil;
+}
+
+- (NSArray *)locationsNearLatitude:(CGFloat)latitude longitude:(CGFloat)longitude margin:(CGFloat)margin {
+    return nil;
+}
+
 @end
